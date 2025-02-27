@@ -1,0 +1,59 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+.mobile-nav-bar {
+
+    &__toggle {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: black;
+        display: block;
+    }
+
+
+    &__list {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100vh;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.2);
+        transform: translateX(100%);
+
+        &--open {
+            transform: translateX(0);
+        }
+    }
+
+    &__item {
+        margin: 1rem 0;
+
+        a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: color 0.3s;
+
+            &:hover {
+                color: red;
+            }
+        }
+    }
+
+}
+
+@include tablet() {
+    .mobile-nav-bar {
+        &__toggle {
+            display: none;
+        }
+    }
+}

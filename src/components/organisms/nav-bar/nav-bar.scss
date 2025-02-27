@@ -1,0 +1,70 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  padding: 1rem 2rem;
+
+  &--scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);  
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    @include container();
+  }
+
+  &__list{
+    list-style: none;
+    display: none;
+  }
+
+
+  &__item {
+    margin: 1rem 0;
+
+    a {
+      color: $white-color;
+      text-decoration: none;
+      @include text-md();
+      font-weight: bold;
+      transition: color 0.3s;
+
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}
+
+@include tablet() {
+  .nav-bar {
+    padding: 1.5rem 2rem;
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      width: auto;
+      height: auto;
+      background: transparent;
+      gap: 2rem;
+    }
+  }
+}
